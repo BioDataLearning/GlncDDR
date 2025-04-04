@@ -12,7 +12,7 @@ This repository contains code, data preprocessing scripts, and results from the 
 - Trains classical ML models (**LR**, **SVM**, **RF**, and **XGBoost**) on DDR/non-DDR genes.
 - Predicts **1,437 candidate DDR-associated lncRNAs** with ROC-AUC up to **0.997** on training and **0.91–0.95** on independent test datasets.
 - Identifies known lncRNAs like **TODRA (RAD51-AS1)** and **potential candidates** (e.g., **POT1-AS1, SOX9-AS1, C8orf86**) supported by literature and genomic proximity.
-- 🔍 Validates predictions through genomic overlap, proximity, and literature mining.
+- Validates predictions through genomic overlap, proximity, and literature mining.
 
 ---
 ## Methodology Summary
