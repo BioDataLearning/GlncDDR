@@ -1,0 +1,14 @@
+echo "__pycache__/
+*.pyc
+*.pyo
+*.log
+*.out
+*.tmp
+output_dir/
+work/
+.nextflow*
+.DS_Store
+.env
+embeddings/
+" > .gitignore
+
