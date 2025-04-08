@@ -6,11 +6,13 @@
 
 ## Key Features
 
-- Graph-based learning using **Node2Vec** over WGCNA co-expression networks  
+- Graph-based learning using **Node2Vec** over WGCNA co-expression networks
+- Node2Vec logic implemented based on the original pseudocode by Aditya Grover & Jure Leskovec ([node2vec: Scalable Feature Learning for Networks (KDD 2016)](https://doi.org/10.1145/2939672.2939754)
+)
 - Classical ML models: **Logistic Regression**, **Random Forest**, **SVM**  
 - Trained on known DDR/non-DDR genes from literature  
 - Predicts and ranks DDR-associated lncRNAs from **GENCODE v36**  
-- Performance up to **ROC-AUC: 0.997 (train)**, **0.91–0.95 (test)**  
+- Performance up to **ROC-AUC: 0.997 (train)**
 - Reproducible with **Docker**, **Nextflow**
 
 
