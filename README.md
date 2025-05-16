@@ -108,6 +108,7 @@ docker build -t glncddr .
 
 ###### 2. Run via Nextflow
 2.1. If you want to run embedding first:
+
 nextflow run main.nf \
   --run_embedding true \
   --vector_sizes '[100]' \
@@ -118,6 +119,7 @@ nextflow run main.nf \
   --output output_dir/
   
 2.2.  If you want to use precomputed embeddings:
+
 nextflow run main.nf \
   --run_embedding false \
   --train embeddings/train_emb_len100.csv \
@@ -138,7 +140,7 @@ nextflow run main.nf \
 #### Example Performance Table
 | Model | Accuracy | Sensitivity | Specificity |   MCC   | F1 Score | ROC-AUC |
 |:-----:|:--------:|:-----------:|:-----------:|:-------:|:--------:|:-------:|
-|  LR   |  0.975   |    0.968    |    0.976    |  0.916  |  0.929   |  0.997  |
-|  RF   |  0.972   |    0.968    |    0.973    |  0.908  |  0.923   |  0.996  |
-| SVM   |  0.971   |    0.978    |    0.970    |  0.906  |  0.921   |  0.997  |
+|  LR   |  0.85    |    0.79     |    0.94     |  0.72   |  0.86    |  0.95   |
+|  RF   |  0.86    |    0.81     |    0.94     |  0.73   |  0.87    |  0.95   |
+| SVM   |  0.82    |    0.72     |    0.970    |  0.68   |  0.83    |  0.95   |
 
