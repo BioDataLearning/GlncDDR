@@ -61,7 +61,7 @@ def create_graphs(data, batch_id, output_dir):
 
     return G, Genes_type
 
-def compute_probabilities(G, probs, batch_id, p=1, q=1, output_dir):
+def compute_probabilities(G, probs, batch_id, output_dir, p=1, q=1):
     print(f"Computing transition probabilities for batch {batch_id}...")
     with tqdm(total=G.number_of_edges(), desc=f'Computing probs for batch {batch_id}') as pbar:
         for source_node in G.nodes():
@@ -174,7 +174,7 @@ def main():
             probs = defaultdict(dict)
             for node in G.nodes():
                 probs[node]['probabilities'] = dict()
-            cp = compute_probabilities(G, probs, batch_id, p=1, q=1,args.output_dir)
+            cp = compute_probabilities(G, probs, batch_id, args.output_dir, p=1, q=1)
             walks = generate_random_walks(G, cp, batch_id, args.walks, args.length,args.output_dir)
 
             # ---------- Node2Vec ----------
