@@ -71,9 +71,11 @@ docker build -t glncddr .
 Use this step if you’re starting from raw gene expression:
 
 python ml_pipeline/embedding/run_embedding.py \
-  --input sample_data/train.csv \
-  --output embeddings/train_embed.csv \
-  --walks 5 --length 10 --dim 100
+  --input       sample_data/train.csv \
+  --output-dir  embeddings \
+  --vector-size 100 \
+  --walks       5 \
+  --length      10
 
 *Repeat for: test.csv, lncrna.csv, protein.csv
 
@@ -108,6 +110,7 @@ docker build -t glncddr .
 2.1. If you want to run embedding first:
 nextflow run main.nf \
   --run_embedding true \
+  --vector_sizes '[100]'
   --raw_train data/train.csv \
   --raw_test data/test.csv \
   --raw_lnc data/lncrna.csv \
