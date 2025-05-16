@@ -43,9 +43,9 @@ GlncDDR_Complete_Pipeline/
 └── output_dir/
 ```
 #### Data Availability
-⚠️ Note: The raw expression data files used to generate graph-based embeddings (e.g., TCGA expression profiles) are not included in this repository due to size constraints (multiple terabytes).
+Note: The raw expression data files used to generate graph-based embeddings (e.g., TCGA expression profiles) are not included in this repository due to size constraints (multiple terabytes).
 
-🔍 To access the raw data or reproduce the full embedding pipeline from scratch, please contact:
+To access the raw data or reproduce the full embedding pipeline from scratch, please contact:
 
 Liangjiang Wang
 liangjw@clemson.edu
