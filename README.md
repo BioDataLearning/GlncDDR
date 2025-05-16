@@ -110,7 +110,7 @@ docker build -t glncddr .
 2.1. If you want to run embedding first:
 nextflow run main.nf \
   --run_embedding true \
-  --vector_sizes '[100]'
+  --vector_sizes '[100]' \
   --raw_train data/train.csv \
   --raw_test data/test.csv \
   --raw_lnc data/lncrna.csv \
