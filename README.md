@@ -12,7 +12,7 @@
 - Classical ML models: **Logistic Regression**, **Random Forest**, **SVM**  
 - Trained on known DDR/non-DDR genes from literature  
 - Predicts and ranks DDR-associated lncRNAs from **GENCODE v36**  
-- Performance up to **ROC-AUC: 0.997 (train)**
+- Performance up to **ROC-AUC: 0.95 (train)**
 - Reproducible with **Docker**, **Nextflow**
 
 
@@ -22,7 +22,8 @@
 ```
 GlncDDR_Complete_Pipeline/
 ├── Dockerfile
-├── main.nf
+├── embedding.nf
+├── ml.nf
 ├── nextflow.config
 ├── requirements.txt
 ├── main.py
