@@ -110,7 +110,7 @@ docker build -t glncddr .
 ###### 2. Run via Nextflow
 2.1. If you want to run embedding first:
 
-nextflow run embedding_pipeline/embedding.nf \
+nextflow run embedding.nf \
   --input       data/train.csv \
   --output_dir  embeddings/ \
   --vector_size 100 \
@@ -130,7 +130,7 @@ embeddings/protein_embedding_100.csv
   
 2.2.  If you want to use precomputed embeddings:
 
-nextflow run ml_pipeline/ml.nf \
+nextflow run ml.nf \
   --run_embedding false \
   --train embeddings/train_emb_len100.csv \
   --test embeddings/test_emb_len100.csv \
