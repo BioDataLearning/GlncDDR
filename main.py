@@ -1,11 +1,14 @@
 import argparse
 import os
+import warnings
+from sklearn.exceptions import DataConversionWarning
 from sklearn.preprocessing import MinMaxScaler
 from ml_pipeline.scripts.training import train_models
 from ml_pipeline.scripts.testing import test_models
 from ml_pipeline.scripts.predict_lnc import predict_lncRNA
 from ml_pipeline.scripts.predict_prot import predict_protein
 from ml_pipeline.scripts.utils import get_training_data, set_global_seed
+warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 def main():
     print("🚀 main() started")
