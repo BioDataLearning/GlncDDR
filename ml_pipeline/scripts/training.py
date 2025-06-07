@@ -12,9 +12,9 @@ def train_models(scaler, trainingfile, output_path):
     X_train = scaler.transform(x_exp)
 
     models = [
-        ('LR', LogisticRegression(C=1.5, penalty='l2', solver='newton-cg', class_weight={1: 2.873}, max_iter=10000), '#004225'),
-        ('RF', RandomForestClassifier(n_estimators=75, max_features='sqrt', max_depth=3, criterion='entropy', class_weight={1: 3.5}), '#F3AA60'),
-        ('SVM', SVC(C=4, kernel='rbf', gamma=0.01, class_weight={1: 2.873}, probability=True), '#EF6262'),
+        ('LR', LogisticRegression(C=1.0, penalty='l2',solver='newton-cg',class_weight={0: 2.783, 1: 1.0},max_iter = 10000, random_state = 42), '#004225'),
+        ('RF', RandomForestClassifier(n_estimators=75, max_features='sqrt',  criterion='entropy', max_depth=3, min_samples_split=3, class_weight= {0: 2.783, 1: 1.0}, random_state = 42), '#F3AA60'),
+        ('SVM', SVC(C=2,kernel='rbf', gamma = 0.01, class_weight= {0: 2.783, 1: 1.0},probability=True, random_state=42), '#EF6262'),
     ]
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
