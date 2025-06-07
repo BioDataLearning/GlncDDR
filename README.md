@@ -72,7 +72,7 @@ docker build -t glncddr .
 Use this step if you’re starting from raw gene expression:
 
 python ml_pipeline/embedding/run_embedding.py \
-  --input       sample_data/train.csv \
+  --input       data/train.csv \
   --output-dir  embeddings \
   --vector-size 100 \
   --walks       5 \
@@ -84,10 +84,10 @@ python ml_pipeline/embedding/run_embedding.py \
 #### Step 2: Train and Predict
 ##### Option 1: Using python (command line)
 python main.py \
-  --train embeddings/train_embed.csv \
-  --test embeddings/test_embed.csv \
-  --predict_lnc embeddings/lncrna_embed.csv \
-  --predict_prot embeddings/protein_embed.csv \
+  --train embeddings/train_emb_len100.csv \
+  --test embeddings/test_emb_len100.csv \
+  --predict_lnc embeddings/lncrna_emb_len100.csv \
+  --predict_prot embeddings/protein_emb_len100.csv \
   --output output_dir/
 
 ##### Output Files
