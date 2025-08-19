@@ -78,7 +78,7 @@ python ml_pipeline/embedding/run_embedding.py \
   --output_dir  embeddings \
   --vector-size 100 \
   --walks       5 \
-  --length      10 \
+  --length      10 
 
 *Repeat for: test.csv, lncrna.csv, protein.csv
 
