@@ -9,7 +9,7 @@
 - Graph-based learning using **Node2Vec** over WGCNA co-expression networks
 - Node2Vec logic implemented based on the original pseudocode by Aditya Grover & Jure Leskovec ([node2vec: Scalable Feature Learning for Networks (KDD 2016)](https://doi.org/10.1145/2939672.2939754)
 )
-- Classical ML models: **Logistic Regression**, **Random Forest**, **SVM**  
+- Classical ML models: **Logistic Regression**, **Random Forest**, **Support Vector Machine**  
 - Trained on known DDR/non-DDR genes from literature  
 - Predicts and ranks DDR-associated lncRNAs from **GENCODE v36**  
 - Performance up to **ROC-AUC: 0.95 (train)**
@@ -22,7 +22,6 @@
 ```
 GlncDDR_Complete_Pipeline/
 ├── Dockerfile
-├── embedding.nf
 ├── ml.nf
 ├── nextflow.config
 ├── requirements.txt
@@ -32,10 +31,10 @@ GlncDDR_Complete_Pipeline/
 │   ├── test_emb_len100.csv
 │   ├── lncrna_emb_len100.csv
 │   └── protein_emb_len100.csv
-├── ml_pipeline/
+├── pipelines/
 │   ├── embedding/
 │   │   └── run_embedding.py
-│   └── scripts/
+│   └── ml/
 │       ├── training.py
 │       ├── testing.py
 │       ├── predict_lnc.py
@@ -55,20 +54,20 @@ liangjw@clemson.edu
 
 ---
 
-## Setup
+## How it works
 
-### 1. Install Dependencies
 #### Option 1: Python Enviornment
+### 1. Install Dependencies
+# Recommended: conda
+conda create -n glncddr python=3.9 -y
+conda activate glncddr
+
+# Install Python deps
 ```bash
 pip install -r requirements.txt
 ```
-#### Option 2: Docker
-docker build -t glncddr .
 
-
-
-
-### 2. How It Works
+### 2. Running the ML scripts
 
 #### Step 1: Run Embedding (optional, one-time only)
 Use this step if you’re starting from raw gene expression:
@@ -84,7 +83,6 @@ python ml_pipeline/embedding/run_embedding.py \
 
 
 #### Step 2: Train and Predict
-##### Option 1: Using python (command line)
 python main.py \
   --train embeddings/train_emb_len100.csv \
   --test embeddings/test_emb_len100.csv \
@@ -109,8 +107,8 @@ python main.py \
 docker build -t glncddr .
 
 
-###### 2. Run via Nextflow
-2.1. If you want to run embedding first:
+###### 2. Run ML scripts using Nextflow
+#### Step 1: If you want to run embedding first:
 
 nextflow run embedding.nf \
   --input       data/train.csv \
@@ -130,7 +128,7 @@ embeddings/test_embedding_100.csv
 embeddings/lncrna_embedding_100.csv
 embeddings/protein_embedding_100.csv
   
-2.2.  If you want to use precomputed embeddings:
+#### Step 2:   If you want to use precomputed embeddings:
 
 nextflow run ml.nf \
   --run_embedding false \
