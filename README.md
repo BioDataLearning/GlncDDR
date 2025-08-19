@@ -102,13 +102,13 @@ python main.py \
 
 
 
-##### Option 2: Using Docker + Nextflow 
+#### Option 2: Using Docker + Nextflow 
 
-###### 1. Build Docker Image
+### 1. Build Docker Image
 docker build -t glncddr .
 
 
-###### 2. Run ML scripts using Nextflow
+### 2. Run ML scripts using Nextflow
 #### Step 1: If you want to run embedding first:
 
 nextflow run embedding.nf \
