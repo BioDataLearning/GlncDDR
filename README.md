@@ -13,8 +13,6 @@
 - Trained on known DDR/non-DDR genes from literature  
 - Predicts and ranks DDR-associated lncRNAs from **GENCODE v36**  
 - Performance up to **ROC-AUC: 0.95 (train)**
-- Reproducible with **Docker**, **Nextflow**
-
 
 ---
 
