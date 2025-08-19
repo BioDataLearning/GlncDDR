@@ -48,6 +48,8 @@ Note: The raw expression data files used to generate graph-based embeddings (e.g
 
 To access the raw data or reproduce the full embedding pipeline from scratch, please contact:
 
+Snehal Shah
+snehals@clemson.edu
 Liangjiang Wang
 liangjw@clemson.edu
 
@@ -73,7 +75,7 @@ Use this step if you’re starting from raw gene expression:
 
 python ml_pipeline/embedding/run_embedding.py \
   --input       data/train.csv \
-  --output-dir  embeddings \
+  --output_dir  embeddings \
   --vector-size 100 \
   --walks       5 \
   --length      10
