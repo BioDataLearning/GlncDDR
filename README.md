@@ -59,11 +59,11 @@ liangjw@clemson.edu
 
 #### Option 1: Python Enviornment
 ### 1. Install Dependencies
-# Recommended: conda
+###### Recommended: conda
 conda create -n glncddr python=3.9 -y
 conda activate glncddr
 
-# Install Python deps
+###### Install Python deps
 ```bash
 pip install -r requirements.txt
 ```
