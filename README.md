@@ -120,14 +120,15 @@ nextflow run embedding.nf \
   --batch_id    1
 Repeat the command for:
 
-data/test.csv
-data/lncrna.csv
-data/protein.csv
+data/test.csv \
+data/lncrna.csv \
+data/protein.csv \
 After all four runs complete, you will have: 
-embeddings/train_embedding_100.csv
-embeddings/test_embedding_100.csv
-embeddings/lncrna_embedding_100.csv
-embeddings/protein_embedding_100.csv
+
+embeddings/train_embedding_100.csv \
+embeddings/test_embedding_100.csv \
+embeddings/lncrna_embedding_100.csv \
+embeddings/protein_embedding_100.csv \
   
 #### Step 2:   If you want to use precomputed embeddings:
 
