@@ -21,10 +21,6 @@
 ## Folder Structure 
 ```
 GlncDDR_Complete_Pipeline/
-├── Dockerfile
-├── embedding.nf
-├── ml.nf
-├── nextflow.config
 ├── requirements.txt
 ├── main.py
 ├── embeddings/
@@ -57,7 +53,6 @@ liangjw@clemson.edu
 
 ## How it works
 
-#### Option 1: Python Enviornment
 ### 1. Install Dependencies
 ###### Recommended: conda
 conda create -n glncddr python=3.9 -y \
@@ -100,54 +95,6 @@ python main.py \
 | `combined_roc_pr.png`  | ROC and PR curves from cross-validation |
 | `*.xlsx`               | Ranked predictions for lncRNAs and protein-coding genes |
 
-
-
-#### Option 2: Using Docker + Nextflow 
-
-### 1. Build Docker Image
-docker build -t glncddr .
-
-
-### 2. Run ML scripts using Nextflow
-#### Step 1: If you want to run embedding first:
-
-nextflow run embedding.nf \
-  --input       data/train.csv \
-  --output_dir  embeddings/ \
-  --vector_size 100 \
-  --walks       5 \
-  --length      10 \
-  --batch_id    1 \
-Repeat the command for:
-
-data/test.csv \
-data/lncrna.csv \
-data/protein.csv \
-After all four runs complete, you will have: 
-
-embeddings/train_embedding_100.csv \
-embeddings/test_embedding_100.csv \
-embeddings/lncrna_embedding_100.csv \
-embeddings/protein_embedding_100.csv \
-  
-#### Step 2:   If you want to use precomputed embeddings:
-
-nextflow run ml.nf \
-  --run_embedding false \
-  --train embeddings/train_emb_len100.csv \
-  --test embeddings/test_emb_len100.csv \
-  --predict_lnc embeddings/lncrna_emb_len100.csv \
-  --predict_prot embeddings/protein_emb_len100.csv \
-  --output output_dir/
-
-  
-##### Output Files
-| File | Description |
-|------|-------------|
-| `training_metrics.txt` | Training set performance metrics (Accuracy, Sensitivity, etc.) |
-| `test_metrics.txt`     | Test set evaluation results |
-| `combined_roc_pr.png`  | ROC and PR curves from cross-validation |
-| `*.xlsx`               | Ranked predictions for lncRNAs and protein-coding genes |
 
 #### Example Performance Table
 | Model | Accuracy | Sensitivity | Specificity |   MCC   | F1 Score | ROC-AUC |
