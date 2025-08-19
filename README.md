@@ -22,6 +22,7 @@
 ```
 GlncDDR_Complete_Pipeline/
 ├── Dockerfile
+├── embedding.nf
 ├── ml.nf
 ├── nextflow.config
 ├── requirements.txt
