@@ -78,7 +78,7 @@ python ml_pipeline/embedding/run_embedding.py \
   --output_dir  embeddings \
   --vector-size 100 \
   --walks       5 \
-  --length      10
+  --length      10 \
 
 *Repeat for: test.csv, lncrna.csv, protein.csv
 
@@ -117,7 +117,7 @@ nextflow run embedding.nf \
   --vector_size 100 \
   --walks       5 \
   --length      10 \
-  --batch_id    1
+  --batch_id    1 \
 Repeat the command for:
 
 data/test.csv \
