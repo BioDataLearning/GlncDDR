@@ -66,22 +66,22 @@ pip install -r requirements.txt
 #### Step 1: Run Embedding (optional, one-time only)
 Use this step if you’re starting from raw gene expression:
 
-python ml_pipeline/embedding/run_embedding.py \\
-  --input       data/train.csv \\
-  --output_dir  embeddings \\
-  --vector-size 100 \\
-  --walks       5 \\
+python ml_pipeline/embedding/run_embedding.py \\ \
+  --input       data/train.csv \\ \
+  --output_dir  embeddings \\ \
+  --vector-size 100 \\ \
+  --walks       5 \\ \
   --length      10 
 
 *Repeat for: test.csv, lncrna.csv, protein.csv
 
 
 #### Step 2: Train and Predict
-python main.py \\
-  --train embeddings/train_emb_len100.csv \\
-  --test embeddings/test_emb_len100.csv \\
-  --predict_lnc embeddings/lncrna_emb_len100.csv \\
-  --predict_prot embeddings/protein_emb_len100.csv \\
+python main.py \\ \
+  --train embeddings/train_emb_len100.csv \\ \
+  --test embeddings/test_emb_len100.csv \\ \
+  --predict_lnc embeddings/lncrna_emb_len100.csv \\ \
+  --predict_prot embeddings/protein_emb_len100.csv \\ \
   --output output_dir/
 
 ##### Output Files
