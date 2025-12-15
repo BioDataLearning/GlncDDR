@@ -53,7 +53,7 @@ liangjw@clemson.edu
 
 ### 1. Install Dependencies
 ###### Recommended: conda
-conda create -n glncddr python=3.9 -y \\
+conda create -n glncddr python=3.9 -y \\ \
 conda activate glncddr
 
 ###### Install Python deps
