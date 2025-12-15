@@ -7,12 +7,12 @@
 ## Key Features
 
 - Graph-based learning using **Node2Vec** over WGCNA co-expression networks
-- Node2Vec logic implemented based on the original pseudocode by Aditya Grover & Jure Leskovec ([node2vec: Scalable Feature Learning for Networks (KDD 2016)](https://doi.org/10.1145/2939672.2939754)
+- Node2Vec was implemented([node2vec: Scalable Feature Learning for Networks (KDD 2016)](https://doi.org/10.1145/2939672.2939754)
 )
 - Classical ML models: **Logistic Regression**, **Random Forest**, **Support Vector Machine**  
 - Trained on known DDR/non-DDR genes from literature  
 - Predicts and ranks DDR-associated lncRNAs from **GENCODE v36**  
-- Performance up to **ROC-AUC: 0.95 (train)**
+- Model performance was assessed using five-fold cross-validation on labeled DDR and non-DDR gene sets.
 
 ---
 
@@ -26,7 +26,7 @@ GlncDDR_Complete_Pipeline/
 │   ├── test_emb_len100.csv
 │   ├── lncrna_emb_len100.csv
 │   └── protein_emb_len100.csv
-├── pipelines/
+├── ml_pipelines/
 │   ├── embedding/
 │   │   └── run_embedding.py
 │   └── ml/
@@ -91,7 +91,7 @@ python main.py \\ \
 | `training_metrics.txt` | Training set performance metrics (Accuracy, Sensitivity, etc.) |
 | `test_metrics.txt`     | Test set evaluation results |
 | `combined_roc_pr.png`  | ROC and PR curves from cross-validation |
-| `*.xlsx`               | Ranked predictions for lncRNAs and protein-coding genes |
+| `*.xlsx`               | Ranked predictions for lncRNAs and protein-coding genes. Each file consists of three sheets - lr_predict_proba, rf_predict_proba and svm_predict_proba |
 
 
 #### Example Performance Table
@@ -101,3 +101,11 @@ python main.py \\ \
 |  RF   |  0.86    |    0.81     |    0.94     |  0.73   |  0.87    |  0.95   |
 | SVM   |  0.82    |    0.72     |    0.970    |  0.68   |  0.83    |  0.95   |
 
+#### Example Prediction File
+| Ensembl         | Genes      | predict_proba | 
+|:-----------------:|:------------:|:---------------:|
+| ENSG00000207744 | MIR10B     | 1             | 
+| ENSG00000264171 | MIR4305    | 1             |
+| ENSG00000227125 | AP002856.1 | 1             | 
+| ENSG00000234277 | LINC01641  | 1             | 
+| ENSG00000231510 | LINC02782  | 1             |
